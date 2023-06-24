@@ -1,4 +1,4 @@
-![math](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/368a50c7-ee37-4b32-8d16-9318dc5c9ccc)# State Estimation and Localization for Self Driving Cars: Vehicle State Estimation on a Roadway (Project Report)
+# State Estimation and Localization for Self Driving Cars: Vehicle State Estimation on a Roadway (Project Report)
 The final project in the second course in the Self Driving Car specialization offered by Coursera.
 
 **Objective:** This project aims to implement an Error-State Extended Kalman Filter (ES-EKF) for vehicle localization using the data from the CARLA simulator. 
@@ -74,7 +74,9 @@ Predicted State Covariance: ![image](https://github.com/AmarchandC/State-Estimat
 **Measurement Model**
 
 
-Measurement Model: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/b69b73cb-6988-4ae8-a106-a3736ab86a26)
+Measurement Model:
+
+![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/b69b73cb-6988-4ae8-a106-a3736ab86a26)
 
 
 Measurement Noise (GNSS): ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/278348a2-9728-4bd6-ade0-9e361fe52a88)
@@ -83,3 +85,34 @@ Measurement Noise (GNSS): ![image](https://github.com/AmarchandC/State-Estimatio
 LIDAR Measurement Noise:![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/51694121-4634-44a4-8924-d52f9e1d9978)
 
 **Measurement Updte**
+
+Extended Kalman filter is used to process the measurements. The measurements in this case come from GNSS and LIDAR. They both provide position updates.
+
+Measurement Model Jacobian: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/990df610-4c21-4573-91bb-953d12192481)
+
+Sensor Noise Covariance: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/e6761a1c-8ee1-4822-8a59-f4269a4b5d51)
+
+Kalman Gain: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/543be4a5-1ca1-4aad-b319-8e5080ba55cf)
+
+
+The Kalman Gain is used to compute the error state. The error state consideres the difference between the predicted vehicle position and measured position (![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/8c594b9a-0837-48f3-afa4-68d7045c1a97)
+).
+
+The error state is used then to update the nominal state vector. Also, the corrected nominal state covariance vector is calculated.
+
+Corrected Position: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/415bca74-37d3-45f2-b9f5-4f40639fa4cd)
+
+Corrected Velocity: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/da8371b5-b918-4e5f-bfa7-4eccbeaa8172)
+
+Corrected Orientation: ![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/63ce748d-3e11-4166-9a23-7d65190a1a0a)
+
+The corrected states and state covariance values are obtained in this way.
+
+
+
+Corrected State Covariance	
+
+**Vehicle Trajectory Comparison**
+The ground truth vehicle trajectory was compared with the trajectory estimated by the algorithm.
+
+![image](https://github.com/AmarchandC/State-Estimation-and-Localization-for-Self-Driving-Cars-Vehicle-State-Estimation-on-a-Roadway/assets/82858194/7a8be98c-8bd5-473a-b6aa-ab94df07c1c2)
